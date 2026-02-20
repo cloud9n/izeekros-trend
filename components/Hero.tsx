@@ -34,20 +34,39 @@ const AnimatedCounter: React.FC<{ end: number; suffix?: string; label: string }>
 };
 
 export const Hero: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    'https://images.unsplash.com/photo-1556894769-b9a5dab851c0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Oilfield Engineering (Offshore)
+    'https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Civil Construction (Cranes)
+    'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920'  // Smart Infrastructure (Global Tech)
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-      {/* Parallax Background */}
-      <div
-        className="absolute inset-0 z-0 bg-fixed bg-center bg-cover"
-        style={{ backgroundImage: 'url(https://picsum.photos/id/1078/1920/1080)' }} // Using an industrial-looking placeholder
-      >
-        {/* Light overlay & Grid pattern for tech vibe - Adjusted for Light Theme */}
-        <div className="absolute inset-0 bg-white/10"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-blue/40 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-grid-pattern opacity-10 animate-pulse-slow"></div>
-        {/* Gradient fade at bottom */}
-        <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
-      </div>
+      {/* Background Slider */}
+      {heroImages.map((img, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 z-0 bg-fixed bg-center bg-cover transition-opacity duration-1000 ease-in-out ${index === currentImageIndex ? 'opacity-100' : 'opacity-0'}`}
+          style={{ backgroundImage: `url(${img})` }}
+        >
+          {/* Light overlay & Grid pattern for tech vibe - Adjusted for Light Theme */}
+          <div className="absolute inset-0 bg-white/10"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/90 to-brand-blue/40 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-grid-pattern opacity-10 animate-pulse-slow"></div>
+        </div>
+      ))}
+
+
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -90,7 +109,7 @@ export const Hero: React.FC = () => {
             <div className="space-y-4">
               <AnimatedCounter end={100} suffix="+" label="Projects Completed" />
               <div className="h-48 rounded-lg overflow-hidden border-4 border-white/20 shadow-2xl">
-                <img src="https://picsum.photos/id/175/400/300" alt="Industrial site" className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" />
+                <img src="https://images.unsplash.com/photo-1674062333283-41a1b59f0408?q=80&w=435&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Engineers on site" className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-700" />
               </div>
             </div>
           </Reveal>

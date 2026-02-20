@@ -23,7 +23,7 @@ export const ServicesPage: React.FC = () => {
                 { label: "Subsea Depth", value: "ROV rating up to 3000m" },
                 { label: "Compliance", value: "ASME VIII & API 1104 Standards" }
             ],
-            img: "https://picsum.photos/id/442/800/600"
+            img: "https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
             title: "Civil Construction",
@@ -40,7 +40,7 @@ export const ServicesPage: React.FC = () => {
                 { label: "Project Scale", value: "Up to 500-unit housing complexes" },
                 { label: "Dredging depth", value: "Max 18m below water level" }
             ],
-            img: "https://picsum.photos/id/1078/800/600"
+            img: "https://images.unsplash.com/photo-1556894769-b9a5dab851c0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         },
         {
             title: "Water Resources",
@@ -57,7 +57,7 @@ export const ServicesPage: React.FC = () => {
                 { label: "Casing type", value: "High-grade PVC or Galvanized Steel" },
                 { label: "Pumping systems", value: "Solar or Diesel powered options" }
             ],
-            img: "https://picsum.photos/id/200/800/600"
+            img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=800"
         },
         {
             title: "Procurement & Logistics",
@@ -81,11 +81,17 @@ export const ServicesPage: React.FC = () => {
     return (
         <div className="bg-white text-brand-light pt-24">
             {/* Header */}
-            <section className="py-20 bg-brand-800">
-                <div className="max-w-7xl mx-auto px-4 text-center">
+            <section className="relative py-20 overflow-hidden bg-brand-light">
+                <div className="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" alt="Clients Hero" className="w-full h-full object-cover" />
+
+                    {/* <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1920" alt="Services Hero" className="w-full h-full object-cover" /> */}
+                    <div className="absolute inset-0 bg-brand-light/50 mix-blend-multiply"></div>
+                </div>
+                <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
                     <Reveal>
-                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-brand-blue">Our Services</h1>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">Our Services</h1>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                             Precision-engineered industrial solutions tailored for the African landscape.
                         </p>
                     </Reveal>

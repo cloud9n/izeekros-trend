@@ -10,15 +10,17 @@ export const AboutPage: React.FC = () => {
     return (
         <div className="bg-white text-brand-light pt-24">
             {/* Hero Section */}
-            <section className="relative py-20 overflow-hidden">
-                <div className="absolute inset-0 z-0 opacity-10">
-                    <img src="https://picsum.photos/id/111/1920/1080" alt="About Hero" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+            <section className="relative py-20 overflow-hidden bg-brand-light">
+                <div className="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" alt="Clients Hero" className="w-full h-full object-cover" />
+
+                    {/* <img src="https://images.unsplash.com/photo-1541888946425-d81bb19480c5?auto=format&fit=crop&q=80&w=1920" alt="About Hero" className="w-full h-full object-cover" /> */}
+                    <div className="absolute inset-0 bg-brand-light/50 mix-blend-multiply"></div>
                 </div>
                 <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
                     <Reveal>
-                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-brand-blue">About Us</h1>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">About Us</h1>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                             Izeekros Trend Limited is a premier indigenous engineering firm dedicated to excellence across the oil, gas, and civil sectors.
                         </p>
                     </Reveal>
@@ -56,7 +58,7 @@ export const AboutPage: React.FC = () => {
                             </div>
                         </Reveal>
                         <Reveal direction="left">
-                            <img src="https://picsum.photos/id/1078/800/600" alt="Industrial History" className="rounded-2xl border border-gray-100 shadow-2xl shadow-brand-blue/5" />
+                            <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&q=80&w=800" alt="Industrial History" className="rounded-2xl border border-gray-100 shadow-2xl shadow-brand-blue/5" />
                         </Reveal>
                     </div>
                 </div>
@@ -91,9 +93,9 @@ export const AboutPage: React.FC = () => {
                 </div>
                 <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
                     {[
-                        { name: 'Israel Osueke', role: 'CEO & Founder', bio: 'With over 25 years in the oil and gas sector, Israel drives the strategic vision of Izeekros.', img: 'https://picsum.photos/seed/ceo1/400/500' },
-                        { name: 'Ernest Ibe', role: 'Chief Project Manager', bio: 'Expert in complex civil engineering projects and subsea logistics.', img: 'https://picsum.photos/seed/pm1/400/500' },
-                        { name: 'Idiris Oluwafemi', role: 'Operations Director', bio: 'Oversees day-to-day industrial operations and manpower management.', img: 'https://picsum.photos/seed/ops1/400/500' }
+                        { name: 'Israel Osueke', role: 'CEO & Founder', bio: 'With over 25 years in the oil and gas sector, Israel drives the strategic vision of Izeekros.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400' },
+                        { name: 'Ernest Ibe', role: 'Chief Project Manager', bio: 'Expert in complex civil engineering projects and subsea logistics.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400' },
+                        { name: 'Idiris Oluwafemi', role: 'Operations Director', bio: 'Oversees day-to-day industrial operations and manpower management.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400' }
                     ].map((m, i) => (
                         <Reveal key={i} delay={i * 200} className="group relative overflow-hidden rounded-2xl border border-gray-100 shadow-md">
                             <img src={m.img} alt={m.name} className="w-full h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />

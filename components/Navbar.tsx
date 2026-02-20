@@ -29,13 +29,13 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3 border-b border-brand-blue/10' : 'bg-transparent py-5'
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-light/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-800' : 'bg-transparent py-5'
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
             <HardHat className="h-8 w-8 text-brand-accent group-hover:rotate-12 transition-transform" />
-            <span className={`font-display font-bold text-xl tracking-wider ${isScrolled ? 'text-brand-light' : 'text-white'}`}>
+            <span className={`font-display font-bold text-xl tracking-wider text-white`}>
               IZEEKROS<span className="text-brand-accent">TREND</span>
             </span>
           </Link>
@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors uppercase tracking-wider ${isActive(link.href) ? 'text-brand-accent' : isScrolled ? 'text-gray-700 hover:text-brand-accent' : 'text-gray-200 hover:text-white'
+                className={`text-sm font-medium transition-colors uppercase tracking-wider ${isActive(link.href) ? 'text-brand-accent' : 'text-gray-200 hover:text-white'
                   }`}
               >
                 {link.name}
@@ -64,7 +64,7 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-brand-accent transition-colors`}
+              className={`text-white hover:text-brand-accent transition-colors`}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

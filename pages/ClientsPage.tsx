@@ -43,11 +43,15 @@ export const ClientsPage: React.FC = () => {
     return (
         <div className="bg-white text-brand-light pt-24">
             {/* Hero */}
-            <section className="py-20 bg-brand-800">
-                <div className="max-w-7xl mx-auto px-4 text-center">
+            <section className="relative py-20 overflow-hidden bg-brand-light">
+                <div className="absolute inset-0 z-0 opacity-20">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=1920" alt="Clients Hero" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-brand-light/50 mix-blend-multiply"></div>
+                </div>
+                <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
                     <Reveal>
-                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-brand-blue">Clients & Partnerships</h1>
-                        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">Clients & Partnerships</h1>
+                        <p className="text-xl text-gray-300 max-w-3xl mx-auto">
                             Trusted by global energy leaders and government agencies to deliver mission-critical infrastructure.
                         </p>
                     </Reveal>

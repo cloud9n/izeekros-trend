@@ -67,9 +67,9 @@ export const About: React.FC = () => {
 
             <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { name: 'Israel Osueke', role: 'Chief Executive Officer', img: 'https://picsum.photos/seed/ceo/200' },
-                { name: 'Ernest Ibe', role: 'Project Manager', img: 'https://picsum.photos/seed/pm/200' },
-                { name: 'Idiris Oluwafemi', role: 'Operations Manager', img: 'https://picsum.photos/seed/ops/200' }
+                { name: 'Israel Osueke', role: 'Chief Executive Officer', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200' },
+                { name: 'Ernest Ibe', role: 'Project Manager', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200' },
+                { name: 'Idiris Oluwafemi', role: 'Operations Manager', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200' }
               ].map((member, idx) => (
                 <Reveal key={idx} delay={idx * 150} className={`bg-white p-4 rounded-xl flex items-center gap-4 border border-gray-100 shadow-md hover:shadow-lg hover:border-brand-blue/20 transition-all ${idx === 2 ? 'sm:col-span-2' : ''}`}>
                   <img src={member.img} alt={member.name} className="w-16 h-16 rounded-full object-cover border-2 border-brand-accent grayscale hover:grayscale-0 transition-all" />

@@ -130,10 +130,10 @@ export const Chatbot: React.FC = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-6 right-6 w-[350px] sm:w-[400px] h-[500px] bg-brand-900 border border-gray-700 rounded-2xl shadow-2xl flex flex-col z-50 transition-all duration-300 origin-bottom-right ${isOpen ? 'scale-100 opacity-100 pointer-events-auto' : 'scale-0 opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-6 right-6 w-[350px] sm:w-[400px] h-[500px] bg-slate-900 border border-gray-700 rounded-2xl shadow-2xl flex flex-col z-50 transition-all duration-300 origin-bottom-right ${isOpen ? 'scale-100 opacity-100 pointer-events-auto' : 'scale-0 opacity-0 pointer-events-none'}`}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-brand-800 rounded-t-2xl">
+        <div className="flex items-center justify-between p-4 border-b border-gray-700 bg-slate-800 rounded-t-2xl">
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/50 relative">
               <Bot className="w-5 h-5 text-brand-accent" />
@@ -150,7 +150,7 @@ export const Chatbot: React.FC = () => {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide bg-brand-900/50">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-hide bg-slate-900">
           {messages.map((msg) => (
             <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div className={`flex gap-2 max-w-[85%] ${msg.sender === 'user' ? 'flex-row-reverse' : 'flex-row'}`}>
@@ -158,8 +158,8 @@ export const Chatbot: React.FC = () => {
                   {msg.sender === 'user' ? <User className="w-4 h-4 text-gray-300" /> : <Bot className="w-4 h-4 text-brand-accent" />}
                 </div>
                 <div className={`p-3 rounded-2xl text-sm leading-relaxed ${msg.sender === 'user'
-                    ? 'bg-brand-blue text-white rounded-tr-sm'
-                    : 'bg-brand-800 text-gray-200 border border-gray-700 rounded-tl-sm'
+                  ? 'bg-brand-blue text-white rounded-tr-sm'
+                  : 'bg-slate-800 text-gray-200 border border-gray-700 rounded-tl-sm'
                   }`}>
                   {renderMessageText(msg.text)}
                   {msg.isStreaming && <span className="inline-block w-1.5 h-4 ml-1 bg-brand-accent animate-pulse align-middle"></span>}
@@ -171,7 +171,7 @@ export const Chatbot: React.FC = () => {
         </div>
 
         {/* Input Area */}
-        <div className="p-4 border-t border-gray-700 bg-brand-800 rounded-b-2xl">
+        <div className="p-4 border-t border-gray-700 bg-slate-800 rounded-b-2xl">
           <form onSubmit={handleSend} className="flex gap-2">
             <input
               type="text"
@@ -179,7 +179,7 @@ export const Chatbot: React.FC = () => {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about our services..."
               disabled={isLoading}
-              className="flex-1 bg-brand-900 border border-gray-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors disabled:opacity-50"
+              className="flex-1 bg-slate-900 border border-gray-700 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-brand-accent transition-colors disabled:opacity-50 placeholder-gray-500"
             />
             <button
               type="submit"
