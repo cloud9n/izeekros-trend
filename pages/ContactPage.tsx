@@ -155,10 +155,10 @@ export const ContactPage: React.FC = () => {
                                         <Mail className="w-5 h-5 text-gray-400 group-hover:text-brand-accent" />
                                         <span className="text-sm truncate text-gray-600 font-medium">Email Us</span>
                                     </a>
-                                    <a href="https://izeekrostrend.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-blue hover:border-brand-blue transition-all shadow-sm">
+                                    {/* <a href="https://izeekrostrend.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-blue hover:border-brand-blue transition-all shadow-sm">
                                         <Globe className="w-5 h-5 text-gray-400 group-hover:text-brand-blue" />
                                         <span className="text-sm text-gray-600 font-medium">Official Website</span>
-                                    </a>
+                                    </a> */}
                                 </div>
                             </Reveal>
 
