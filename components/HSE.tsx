@@ -33,13 +33,7 @@ export const HSE: React.FC = () => {
                   <div className="text-xs text-gray-400">Corporate Affairs Commission</div>
                 </div>
               </div>
-              <div className="flex items-center gap-3 bg-white/5 p-4 rounded-lg border border-white/10 shadow-sm hover:bg-white/10 transition-colors">
-                <FileText className="w-8 h-8 text-brand-blue" />
-                <div>
-                  <div className="font-bold text-white">FIRS Certified</div>
-                  <div className="text-xs text-gray-400">Federal Inland Revenue</div>
-                </div>
-              </div>
+
             </div>
           </Reveal>
 
