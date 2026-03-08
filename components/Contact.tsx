@@ -14,10 +14,10 @@ export const Contact: React.FC = () => {
               <img
                 src="/dark_mode.png"
                 alt="IZEEKROS TREND"
-                className="h-12 w-auto group-hover:scale-105 transition-transform"
+                className="h-14 w-auto group-hover:scale-105 transition-transform"
               />
               <span className="font-display font-bold text-base tracking-wider uppercase text-white">
-                Izee<span className="text-brand-accent">kros</span> trend
+                Izee<span className="text-brand-accent">kros</span> tr<span className="text-brand-accent">end</span>
               </span>
             </Link>
             <p className="text-gray-400 max-w-md mb-8">
@@ -44,11 +44,19 @@ export const Contact: React.FC = () => {
                 <Phone className="w-5 h-5 text-brand-accent shrink-0" />
                 <span className="text-sm">+234 806 953 6359</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <Mail className="w-5 h-5 text-brand-accent shrink-0" />
-                <a href="mailto:izeekrostrendltd@yahoo.com" className="hover:text-brand-accent transition-colors text-sm">
-                  izeekrostrendltd@yahoo.com
-                </a>
+              <li className="space-y-4 text-gray-400">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-brand-accent shrink-0" />
+                  <a href="mailto:info@izeekros.com" className="hover:text-brand-accent transition-colors text-sm font-bold text-gray-300">
+                    info@izeekros.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-brand-accent shrink-0 opacity-50" />
+                  <a href="mailto:izeekrostrendltd@yahoo.com" className="hover:text-brand-accent transition-colors text-xs opacity-80">
+                    izeekrostrendltd@yahoo.com
+                  </a>
+                </div>
               </li>
             </ul>
           </Reveal>

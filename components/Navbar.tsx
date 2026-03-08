@@ -40,10 +40,10 @@ export const Navbar: React.FC = () => {
             <img
               src={isLightBackground ? "/light_mode.png" : "/dark_mode.png"}
               alt="IZEEKROS TREND"
-              className="h-14 w-auto group-hover:scale-105 transition-transform"
+              className="h-16 w-auto group-hover:scale-105 transition-transform"
             />
             <span className={`font-display font-bold text-base tracking-wider uppercase ${isLightBackground ? 'text-brand-light' : 'text-white'}`}>
-              Izee<span className="text-brand-accent">kros</span> trend
+              Izee<span className="text-brand-accent">kros</span> tr<span className="text-brand-accent">end</span>
             </span>
           </Link>
 

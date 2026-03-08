@@ -13,12 +13,37 @@ export const ContactPage: React.FC = () => {
         subject: '',
         message: ''
     });
+    const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        // Simulate form submission
-        alert("Thank you for your message. Our technical team will review your request and get back to you within 24 hours.");
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setStatus('submitting');
+
+        try {
+            const response = await fetch("https://formspree.io/f/xgonvpbw", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    subject: formData.subject || "General Inquiry",
+                    message: formData.message
+                })
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                setFormData({ name: '', email: '', subject: '', message: '' });
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                setStatus('error');
+            }
+        } catch (error) {
+            setStatus('error');
+        }
     };
 
     return (
@@ -101,10 +126,39 @@ export const ContactPage: React.FC = () => {
                                     </div>
                                     <button
                                         type="submit"
-                                        className="w-full bg-brand-accent hover:bg-red-600 text-white font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg shadow-red-500/30 hover:shadow-red-500/40 hover:-translate-y-1"
+                                        disabled={status === 'submitting'}
+                                        className={`w-full font-bold py-4 rounded-lg transition-all flex items-center justify-center gap-2 shadow-lg hover:-translate-y-1 ${status === 'submitting'
+                                            ? 'bg-gray-400 cursor-not-allowed'
+                                            : 'bg-brand-accent hover:bg-red-600 text-white shadow-red-500/30 hover:shadow-red-500/40'
+                                            }`}
                                     >
-                                        <Send className="w-5 h-5" /> Send Inquiry
+                                        {status === 'submitting' ? (
+                                            <>
+                                                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                                                Sending...
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Send className="w-5 h-5" /> Send Inquiry
+                                            </>
+                                        )}
                                     </button>
+
+                                    {status === 'success' && (
+                                        <Reveal>
+                                            <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-lg text-center animate-in fade-in slide-in-from-bottom-2">
+                                                Thank you! Your message has been sent successfully. We'll get back to you shortly.
+                                            </div>
+                                        </Reveal>
+                                    )}
+
+                                    {status === 'error' && (
+                                        <Reveal>
+                                            <div className="p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg text-center animate-in fade-in slide-in-from-bottom-2">
+                                                Oops! Something went wrong. Please try again or email us directly at <a href="mailto:info@izeekros.com" className="font-bold underline">info@izeekros.com</a>
+                                            </div>
+                                        </Reveal>
+                                    )}
                                 </form>
                             </div>
                         </Reveal>
@@ -123,9 +177,12 @@ export const ContactPage: React.FC = () => {
                                             <p className="text-gray-600 text-sm leading-relaxed mb-4">
                                                 Plot 144 Trans-Amadi Industrial Layout, Port Harcourt, Rivers State, Nigeria.
                                             </p>
-                                            <div className="flex items-center gap-4 text-sm text-gray-500">
-                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> +234 806 953 6359</span>
-                                                <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> 8AM - 5PM</span>
+                                            <div className="flex flex-col gap-2 mt-4 text-sm text-gray-500">
+                                                <span className="flex items-center gap-1 font-bold text-brand-blue"><Mail className="w-3 h-3" /> info@izeekros.com</span>
+                                                <div className="flex items-center gap-4">
+                                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> +234 806 953 6359</span>
+                                                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> 8AM - 5PM</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -139,9 +196,12 @@ export const ContactPage: React.FC = () => {
                                             <p className="text-gray-600 text-sm leading-relaxed mb-4">
                                                 #8 Martins Street, Victoria Island, Lagos, Nigeria.
                                             </p>
-                                            <div className="flex items-center gap-4 text-sm text-gray-500">
-                                                <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> +234 802 837 9458</span>
-                                                <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> 9AM - 4PM</span>
+                                            <div className="flex flex-col gap-2 mt-4 text-sm text-gray-500">
+                                                <span className="flex items-center gap-1 font-bold text-brand-blue"><Mail className="w-3 h-3" /> info@izeekros.com</span>
+                                                <div className="flex items-center gap-4">
+                                                    <span className="flex items-center gap-1"><Phone className="w-3 h-3" /> +234 802 837 9458</span>
+                                                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" /> 9AM - 4PM</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -150,27 +210,35 @@ export const ContactPage: React.FC = () => {
 
                             <Reveal direction="left" delay={200}>
                                 <h3 className="text-2xl font-bold mb-6 text-brand-light">Connect With Us</h3>
-                                <div className="grid grid-cols-2 gap-4">
-                                    <a href="mailto:izeekrostrendltd@yahoo.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-accent hover:border-brand-accent transition-all shadow-sm">
-                                        <Mail className="w-5 h-5 text-gray-400 group-hover:text-brand-accent" />
-                                        <span className="text-sm truncate text-gray-600 font-medium">Email Us</span>
-                                    </a>
-                                    {/* <a href="https://izeekrostrend.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-blue hover:border-brand-blue transition-all shadow-sm">
+                                <a href="mailto:info@izeekros.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-accent hover:border-brand-accent transition-all shadow-sm">
+                                    <Mail className="w-5 h-5 text-gray-400 group-hover:text-brand-accent" />
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-gray-400">Primary Email</span>
+                                        <span className="text-sm truncate text-gray-600 font-bold">info@izeekros.com</span>
+                                    </div>
+                                </a>
+                                <a href="mailto:izeekrostrendltd@yahoo.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-accent hover:border-brand-accent transition-all shadow-sm">
+                                    <Mail className="w-5 h-5 text-gray-400 group-hover:text-brand-accent" />
+                                    <div className="flex flex-col">
+                                        <span className="text-xs text-gray-400">Secondary Email</span>
+                                        <span className="text-sm truncate text-gray-600 font-medium">izeekrostrendltd@yahoo.com</span>
+                                    </div>
+                                </a>
+                                {/* <a href="https://izeekrostrend.com" className="flex items-center gap-3 p-4 rounded-xl bg-white border border-gray-200 hover:text-brand-blue hover:border-brand-blue transition-all shadow-sm">
                                         <Globe className="w-5 h-5 text-gray-400 group-hover:text-brand-blue" />
                                         <span className="text-sm text-gray-600 font-medium">Official Website</span>
                                     </a> */}
-                                </div>
-                            </Reveal>
-
-                            <Reveal direction="left" delay={400} className="p-8 rounded-3xl bg-brand-accent/5 border border-brand-accent/10 hover:bg-brand-accent/10 transition-colors">
-                                <h4 className="font-bold text-brand-accent mb-2 uppercase tracking-widest text-xs">Emergency Response</h4>
-                                <p className="text-sm text-gray-600">
-                                    For industrial emergencies or critical technical failures, our hotline is monitored 24/7.
-                                </p>
-                                <div className="mt-4 text-2xl font-bold text-brand-light tracking-wider">+234 (0) 806 953 6359</div>
                             </Reveal>
                         </div>
                     </div>
+
+                    <Reveal direction="left" delay={400} className="p-8 rounded-3xl bg-brand-accent/5 border border-brand-accent/10 hover:bg-brand-accent/10 transition-colors">
+                        <h4 className="font-bold text-brand-accent mb-2 uppercase tracking-widest text-xs">Emergency Response</h4>
+                        <p className="text-sm text-gray-600">
+                            For industrial emergencies or critical technical failures, our hotline is monitored 24/7.
+                        </p>
+                        <div className="mt-4 text-2xl font-bold text-brand-light tracking-wider">+234 (0) 806 953 6359</div>
+                    </Reveal>
                 </div>
             </section>
         </div>
