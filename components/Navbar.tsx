@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, HardHat } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Navbar: React.FC = () => {
@@ -28,15 +28,22 @@ export const Navbar: React.FC = () => {
     return location.pathname.startsWith(path);
   };
 
+  const isHome = location.pathname === '/';
+  const isLightBackground = isMobileMenuOpen || (!isScrolled && !isHome);
+
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-brand-light/95 backdrop-blur-md shadow-lg py-3 border-b border-gray-800' : 'bg-transparent py-5'
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link to="/" className="flex items-center gap-2 group">
-            <HardHat className="h-8 w-8 text-brand-accent group-hover:rotate-12 transition-transform" />
-            <span className={`font-display font-bold text-xl tracking-wider text-white`}>
-              IZEEKROS<span className="text-brand-accent">TREND</span>
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src={isLightBackground ? "/light_mode.png" : "/dark_mode.png"}
+              alt="IZEEKROS TREND"
+              className="h-14 w-auto group-hover:scale-105 transition-transform"
+            />
+            <span className={`font-display font-bold text-base tracking-wider uppercase ${isLightBackground ? 'text-brand-light' : 'text-white'}`}>
+              Izee<span className="text-brand-accent">kros</span> trend
             </span>
           </Link>
 
@@ -46,7 +53,11 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className={`text-sm font-medium transition-colors uppercase tracking-wider ${isActive(link.href) ? 'text-brand-accent' : 'text-gray-200 hover:text-white'
+                className={`text-sm font-medium transition-colors uppercase tracking-wider ${isActive(link.href)
+                  ? 'text-brand-accent'
+                  : isLightBackground
+                    ? 'text-brand-light hover:text-brand-blue'
+                    : 'text-gray-200 hover:text-white'
                   }`}
               >
                 {link.name}
@@ -64,7 +75,7 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`text-white hover:text-brand-accent transition-colors`}
+              className={`${isLightBackground ? 'text-brand-light' : 'text-white'} hover:text-brand-accent transition-colors`}
             >
               {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>

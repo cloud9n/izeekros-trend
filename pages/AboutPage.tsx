@@ -93,9 +93,9 @@ export const AboutPage: React.FC = () => {
                 </div>
                 <div className="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-8">
                     {[
-                        { name: 'Israel Osueke', role: 'CEO & Founder', bio: 'With over 25 years in the oil and gas sector, Israel drives the strategic vision of Izeekros.', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400' },
-                        { name: 'Ernest Ibe', role: 'Chief Project Manager', bio: 'Expert in complex civil engineering projects and subsea logistics.', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400' },
-                        { name: 'Idiris Oluwafemi', role: 'Operations Director', bio: 'Oversees day-to-day industrial operations and manpower management.', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400' }
+                        { name: 'Israel Osueke', role: 'CEO & Founder', bio: 'With over 25 years in the oil and gas sector, Israel drives the strategic vision of Izeekros.', img: '/Isreal_CEO.jpg' },
+                        { name: 'Ernest Ibe', role: 'Chief Project Manager', bio: 'Expert in complex civil engineering projects and subsea logistics.', img: '/light_mode.png' },
+                        { name: 'Idiris Oluwafemi', role: 'Operations Director', bio: 'Oversees day-to-day industrial operations and manpower management.', img: '/light_mode.png' }
                     ].map((m, i) => (
                         <Reveal key={i} delay={i * 200} className="group relative overflow-hidden rounded-2xl border border-gray-100 shadow-md">
                             <img src={m.img} alt={m.name} className="w-full h-[400px] object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />

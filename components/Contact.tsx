@@ -10,8 +10,15 @@ export const Contact: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
 
           <Reveal delay={0} className="lg:col-span-2">
-            <Link to="/" className="font-display font-bold text-2xl tracking-wider text-white mb-6 block">
-              IZEEKROS<span className="text-brand-accent">TREND</span>
+            <Link to="/" className="mb-6 flex items-center gap-3 group">
+              <img
+                src="/dark_mode.png"
+                alt="IZEEKROS TREND"
+                className="h-12 w-auto group-hover:scale-105 transition-transform"
+              />
+              <span className="font-display font-bold text-base tracking-wider uppercase text-white">
+                Izee<span className="text-brand-accent">kros</span> trend
+              </span>
             </Link>
             <p className="text-gray-400 max-w-md mb-8">
               Pacesetters in Engineering the Future. We bring smart solutions to complex industrial challenges across Africa.

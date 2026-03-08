@@ -59,23 +59,21 @@ export const About: React.FC = () => {
 
           <div className="order-1 lg:order-2 space-y-12">
             <Reveal direction="left">
-              <h3 className="text-3xl font-display font-bold text-brand-light mb-6">The Minds Behind The Machinery</h3>
+              <h3 className="text-3xl font-display font-bold text-brand-light mb-6">The Mind Behind The Machinery</h3>
               <p className="text-gray-600 text-lg mb-8">
-                Our leadership team brings decades of combined experience in engineering, project management, and strategic operations, ensuring every project is delivered to international standards.
+                Our leadership brings decades of combined experience in engineering, project management, and strategic operations, ensuring every project is delivered to international standards.
               </p>
             </Reveal>
 
-            <div className="grid sm:grid-cols-2 gap-6">
+            <div className="flex justify-center lg:justify-start">
               {[
-                { name: 'Israel Osueke', role: 'Chief Executive Officer', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=200' },
-                { name: 'Ernest Ibe', role: 'Project Manager', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200' },
-                { name: 'Idiris Oluwafemi', role: 'Operations Manager', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=200' }
+                { name: 'Israel Osueke', role: 'Chief Executive Officer', img: '/Isreal_CEO.jpg' },
               ].map((member, idx) => (
-                <Reveal key={idx} delay={idx * 150} className={`bg-white p-4 rounded-xl flex items-center gap-4 border border-gray-100 shadow-md hover:shadow-lg hover:border-brand-blue/20 transition-all ${idx === 2 ? 'sm:col-span-2' : ''}`}>
-                  <img src={member.img} alt={member.name} className="w-16 h-16 rounded-full object-cover border-2 border-brand-accent grayscale hover:grayscale-0 transition-all" />
+                <Reveal key={idx} delay={idx * 150} className={`bg-white p-6 rounded-2xl flex items-center gap-6 border border-gray-100 shadow-xl hover:shadow-2xl hover:border-brand-blue/20 transition-all max-w-md`}>
+                  <img src={member.img} alt={member.name} className="w-24 h-24 rounded-full object-cover border-4 border-brand-accent grayscale hover:grayscale-0 transition-all" />
                   <div>
-                    <h4 className="text-brand-light font-bold">{member.name}</h4>
-                    <p className="text-brand-blue font-medium text-sm">{member.role}</p>
+                    <h4 className="text-2xl font-bold text-brand-light">{member.name}</h4>
+                    <p className="text-brand-blue font-bold text-lg">{member.role}</p>
                   </div>
                 </Reveal>
               ))}
