@@ -40,7 +40,7 @@ export const Hero: React.FC = () => {
     'https://images.unsplash.com/photo-1556894769-b9a5dab851c0?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Oilfield Engineering (Offshore)
     'https://plus.unsplash.com/premium_photo-1682148230470-2b67a322ab34?q=80&w=872&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Civil Construction (Cranes)
     'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920',  // Smart Infrastructure (Global Tech)
-    'https://unsplash.com/photos/oil-rig-guADzpF9pDI' // oil rig
+    'https://images.unsplash.com/photo-1633155617309-6201a8096e8a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' // oil rig
   ];
 
   useEffect(() => {
